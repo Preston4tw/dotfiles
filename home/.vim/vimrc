@@ -67,3 +67,5 @@ set number
 
 " Highlight search
 set hlsearch
+
+syntax on
