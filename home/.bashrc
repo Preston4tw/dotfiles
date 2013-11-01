@@ -1,4 +1,5 @@
 # Unlimited bash history
+export HISTCONTROL="ignoreboth"
 export HISTFILESIZE=
 export HISTSIZE=
 # %F  Equivalent to %Y-%m-%d (the ISO 8601 date format). (C99)
@@ -42,3 +43,22 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 alias homeshick="source ${HOME}/.homesick/repos/homeshick/bin/homeshick.sh"
+
+# shopt
+# -s set, aka enable
+# -u unset, aka disable
+# If command is just a dirname, assume cd
+# autocd
+# Check for stopped/backgrounded jobs before exiting interactive shell
+shopt -s checkjobs
+# Checks window size after each command, updates LINES/COLUMNS if necessary
+shopt -s checkwinsize
+# Tries to append all lines of a multi-line command in the same hist entry
+shopt -s cmdhist
+# Behave like bash $version
+# compat(31|32|40|41)
+# Append instead of overwrite HISTFILE
+shopt -s histappend
+
+# What bash version are we working with?
+# echo $BASH_VERSINFO
