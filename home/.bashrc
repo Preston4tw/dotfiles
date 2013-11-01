@@ -62,3 +62,5 @@ shopt -s histappend
 
 # What bash version are we working with?
 # echo $BASH_VERSINFO
+
+export EDITOR=vim
