@@ -1,0 +1,68 @@
+if has('vim_starting')
+  set nocompatible
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Recommended to install
+" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+" NeoBundle 'Shougo/vimproc'
+
+" NeoBundle 'tpope/vim-fugitive'
+" NeoBundle 'Lokaltog/vim-easymotion', '09c0cea8'   " This plugin is locked at revision 09c0cea8 
+" NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" vim-scripts repos
+" NeoBundle 'L9'
+" NeoBundle 'FuzzyFinder'
+" NeoBundle 'rails.vim'
+" Non github repos
+" NeoBundle 'git://git.wincent.com/command-t.git'
+" gist repos
+" NeoBundle 'gist:Shougo/656148', {
+"      \ 'name': 'everything.vim',
+"      \ 'script_type': 'plugin'}
+" Non git repos
+" NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
+" NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
+
+filetype plugin indent on     " Required!
+
+" Brief help
+" :NeoBundleList          - list configured bundles
+" :NeoBundleInstall(!)    - install(update) bundles
+" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+
+" Installation check.
+NeoBundleCheck
+
+set encoding=utf8
+
+" Since we code in multiple languages, we'll set sane defaults but largely rely
+" on modelines
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set modeline
+
+" Wrap lines at 80 characters
+set textwidth=80
+
+" Highlight characters over column 80
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
+
+" Use the system clipboard for global copy/paste
+if $TMUX == ''
+  set clipboard=unnamed
+endif
+
+" Numbered lines
+set number
+
+" Highlight search
+set hlsearch
