@@ -58,9 +58,7 @@ match OverLength /\%81v.\+/
 
 
 " Use the system clipboard for global copy/paste
-if $TMUX == ''
-  set clipboard=unnamed
-endif
+set clipboard=unnamed
 
 " Numbered lines
 set number
