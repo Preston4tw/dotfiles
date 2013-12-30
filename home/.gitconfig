@@ -1,3 +1,5 @@
 [user]
   name = Preston Bennes
   email = preston@
+[push]
+	default = simple
