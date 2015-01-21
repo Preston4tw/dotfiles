@@ -42,8 +42,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-alias homeshick="source ${HOME}/.homesick/repos/homeshick/bin/homeshick.sh"
-
 # shopt
 # -s set, aka enable
 # -u unset, aka disable
@@ -207,3 +205,5 @@ alias ls="command ls $LS_COMMON"
 alias ll="ls -l"
 alias l.="ls -d .*"
 EOF
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
