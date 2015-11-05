@@ -1,0 +1,13 @@
+# Only run if we're being sourced
+if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
+  echo "This is meant to be sourced, not running" >&2
+  exit 1
+fi
+
+# Only allow this to be sourced once
+check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
+[ -v ${check_var} ] && { unset check_var; return; }
+export ${check_var}=1
+unset check_var
+
+[ -f "${HOME}/.homesick/repos/homeshick/homeshick.sh" ] && source "${HOME}/.homesick/repos/homeshick/homeshick.sh"
