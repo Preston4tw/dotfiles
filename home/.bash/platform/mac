@@ -4,11 +4,15 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
   exit 1
 fi
 
+# Aliases are safe to source multiple times. Also, this doesn't work as intended
+# when using iterm2+tmux if iterm2 is being opened with bash and then tmux is
+# being invoked. Until I find a better approach...
+#
 # Only allow this to be sourced once
-check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
-[ -v ${check_var} ] && { unset check_var; return; }
-export ${check_var}=1
-unset check_var
+#check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
+#[ -v ${check_var} ] && { unset check_var; return; }
+#export ${check_var}=1
+#unset check_var
 
 alias ls='ls -G'
 alias la='ls -a'

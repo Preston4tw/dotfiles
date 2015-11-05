@@ -4,11 +4,14 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
   exit 1
 fi
 
+# The include files themselves should control if they can be sourced multiple
+# times or not
+#
 # Only allow this to be sourced once
-check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
-[ -v ${check_var} ] && { unset check_var; return; }
-export ${check_var}=1
-unset check_var
+#check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
+#[ -v ${check_var} ] && { unset check_var; return; }
+#export ${check_var}=1
+#unset check_var
 
 # Mac
 [ "$(uname -s)" = "Darwin" ] && source $(dirname ${BASH_SOURCE[0]})/platform/mac

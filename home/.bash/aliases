@@ -4,11 +4,12 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
   exit 1
 fi
 
+# Aliases should be safe to source multiple times
 # Only allow this to be sourced once
-check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
-[ -v ${check_var} ] && { unset check_var; return; }
-export ${check_var}=1
-unset check_var
+#check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
+#[ -v ${check_var} ] && { unset check_var; return; }
+#export ${check_var}=1
+#unset check_var
 
 # This should be aliases we expect to run on every type of platform possible.
 # Otherwise, platform specific stuff should go into platform/
