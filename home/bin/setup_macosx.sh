@@ -1,11 +1,15 @@
 #!/bin/bash
 
+# Defensive bash
 set -o pipefail
 set -o errexit
 set -o nounset
 
 # Only run on Mac OS X
 [ "$(uname -s)" = "Darwin" ]
+
+# Possible inspiration:
+# https://github.com/chcokr/osx-init/blob/master/install.sh
 
 # It may make sense to limit this script to particular versions of mac os x at
 # some point:

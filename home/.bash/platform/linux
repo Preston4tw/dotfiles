@@ -1,0 +1,24 @@
+# Only run if we're being sourced
+if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
+  echo "This is meant to be sourced, not running" >&2
+  exit 1
+fi
+
+# Only allow this to be sourced once
+check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
+[ -v ${check_var} ] && return
+export ${check_var}=1
+
+# enable color support of ls/grep and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'

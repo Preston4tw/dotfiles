@@ -1,6 +1,0 @@
-# tmux only supports 256 colors when TERM is set to something with color support
-# on launch. Don't set TERM when tmux launches, allowing tmux to set TERM to
-# screen-256color.
-if [ -z "${TMUX}" ]; then
-  export TERM=xterm-256color
-fi

@@ -9,5 +9,10 @@ check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
 [ -v ${check_var} ] && return
 export ${check_var}=1
 
-# This should be aliases we expect to run on every type of platform possible.
-# Otherwise, platform specific stuff should go into platform/
+# Mac
+[ "$(uname -s)" = "Darwin" ] && source $(dirname ${BASH_SOURCE[0]})/platform/mac
+
+# Crouton / ChromeOS
+if [ -d /proc ] && [ -e /proc/cmdline ] && grep -q '^cros_secure' /proc/cmdline; then
+  source $(dirname ${BASH_SOURCE[0]})/platform/crouton
+fi

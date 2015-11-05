@@ -9,5 +9,9 @@ check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
 [ -v ${check_var} ] && return
 export ${check_var}=1
 
-# This should be aliases we expect to run on every type of platform possible.
-# Otherwise, platform specific stuff should go into platform/
+# tmux only supports 256 colors when TERM is set to something with color support
+# on launch. Don't set TERM when tmux launches, allowing tmux to set TERM to
+# screen-256color.
+if [ -z "${TMUX}" ]; then
+  export TERM=xterm-256color
+fi
