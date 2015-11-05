@@ -96,7 +96,7 @@ caskroom/cask/brew-cask
 colordiff
 "
 for brew in ${BREWS}; do
-  brew list ${brew} || brew install ${brew} || true
+  brew list ${brew} &>/dev/null || brew install ${brew} || true
 done
 
 # Update our default shell to brew bash
@@ -119,7 +119,7 @@ smcfancontrol
 "
 for cask in ${CASKS}; do
   # We don't care if one of these installs fails
-  brew cask install $cask || true
+  brew cask list ${cask} &>/dev/null || brew cask install ${cask} || true
 done
 
 if ! gem list veewee | grep -q '^veewee '; then
