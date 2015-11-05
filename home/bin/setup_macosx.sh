@@ -11,6 +11,34 @@ set -o nounset
 # Possible inspiration:
 # https://github.com/chcokr/osx-init/blob/master/install.sh
 
+# System Preferences, programatically =D
+# defaults write
+#   com.apple.AppleMultitouchTrackpad
+#   com.apple.dock
+#   com.apple.finder
+#   com.googlecode.iterm2
+#   
+# Apple Global Domain
+#   com.apple.swipescrolldirection = 0
+defaults write 'Apple Global Domain' com.apple.swipescrolldirection -int 0
+# com.apple.AppleMultitouchTrackpad
+#   Clicking=1
+defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+#   TrackpadFiveFingerPinchGesture=0
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGesture -int 0
+#   TrackpadFourFingerPinchGesture=0
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture -int 0
+# com.apple.dock
+#   showAppExposeGestureEnabled=0
+defaults write com.apple.dock showAppExposeGestureEnabled -int 0
+#   showDesktopGestureEnabled=0
+defaults write com.apple.dock showDesktopGestureEnabled -int 0
+#   showLaunchpadGestureEnabled=0
+defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
+# com.apple.systempreferences
+#   trackpad.lastselectedtab=0
+defaults write com.apple.systempreferences trackpad.lastselectedtab -int 0
+
 # It may make sense to limit this script to particular versions of mac os x at
 # some point:
 # sw_vers -productVersion
@@ -65,6 +93,7 @@ bash
 tmux
 awscli
 caskroom/cask/brew-cask
+colordiff
 "
 for brew in ${BREWS}; do
   brew list ${brew} || brew install ${brew} || true
