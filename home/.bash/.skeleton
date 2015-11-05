@@ -8,4 +8,5 @@ fi
 check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
 [ -v ${check_var} ] && return
 export ${check_var}=1
+unset check_var
 

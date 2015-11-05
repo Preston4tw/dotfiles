@@ -8,6 +8,7 @@ fi
 check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
 [ -v ${check_var} ] && return
 export ${check_var}=1
+unset check_var
 
 # tmux only supports 256 colors when TERM is set to something with color support
 # on launch. Don't set TERM when tmux launches, allowing tmux to set TERM to
