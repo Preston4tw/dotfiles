@@ -40,7 +40,7 @@ export EDITOR=vim
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 # Platform specific
-if grep -q '^cros_secure' /proc/cmdline; then
+if [ -d /proc] && [ -e /proc/cmdline ] && grep -q '^cros_secure' /proc/cmdline; then
   [ -f ~/.bash/crouton ] && source ~/.bash/crouton
 fi
 
