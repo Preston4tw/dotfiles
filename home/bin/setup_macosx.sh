@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # Defensive bash
 set -o pipefail
@@ -51,7 +51,7 @@ defaults write com.apple.systempreferences trackpad.lastselectedtab -int 0
 # set but password is cached
 sudo -K
 # try and sudo without password
-if ! sudo -n true; then
+if ! sudo -n true &>/dev/null; then
   echo 'Setting NOPASSWD for admin group in sudoers'
   sudo sed -i '' 's/^%admin.*/%admin ALL=(ALL) NOPASSWD:ALL/' /etc/sudoers
 fi
@@ -100,9 +100,14 @@ for brew in ${BREWS}; do
 done
 
 # Update our default shell to brew bash
-echo /usr/local/bin/bash >> /etc/shells
-chpass -s /usr/local/bin/bash $(whoami)
+if ! grep -q '/usr/local/bin/bash' /etc/shells; then
+  echo /usr/local/bin/bash | sudo tee -a /etc/shells
+fi
 
+CUR_SHELL="$(dscl -q . -read /Users/$(whoami) UserShell | awk -F': ' '{ print $2}')"
+if [ "${CUR_SHELL}" != "/usr/local/bin/bash" ]; then
+  sudo chpass -s /usr/local/bin/bash $(whoami)
+fi
 
 # Install some software with brew-cask
 CASKS="
@@ -110,11 +115,13 @@ iterm2
 virtualbox
 vagrant
 keepassx
+smcfancontrol
 "
 for cask in ${CASKS}; do
   # We don't care if one of these installs fails
   brew cask install $cask || true
 done
-brew install bash
-brew install bash tmux awscli
-sudo gem install veewee
+
+if ! gem list veewee | grep -q '^veewee '; then
+  sudo gem install veewee
+fi
