@@ -94,6 +94,7 @@ tmux
 awscli
 caskroom/cask/brew-cask
 colordiff
+wget
 "
 for brew in ${BREWS}; do
   brew list ${brew} &>/dev/null || brew install ${brew} || true
