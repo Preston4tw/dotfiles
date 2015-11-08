@@ -96,6 +96,7 @@ caskroom/cask/brew-cask
 colordiff
 wget
 "
+
 for brew in ${BREWS}; do
   brew list ${brew} &>/dev/null || brew install ${brew} || true
 done
@@ -113,10 +114,11 @@ fi
 # Install some software with brew-cask
 CASKS="
 iterm2
-virtualbox
-vagrant
 keepassx
 smcfancontrol
+terraform
+vagrant
+virtualbox
 "
 for cask in ${CASKS}; do
   # We don't care if one of these installs fails
