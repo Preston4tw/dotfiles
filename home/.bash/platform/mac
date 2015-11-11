@@ -8,12 +8,16 @@ fi
 # when using iterm2+tmux if iterm2 is being opened with bash and then tmux is
 # being invoked. Until I find a better approach...
 #
-# Only allow this to be sourced once
-#check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
-#[ -v ${check_var} ] && { unset check_var; return; }
-#export ${check_var}=1
-#unset check_var
-
 alias ls='ls -G'
 alias la='ls -a'
 alias ll='ls -l'
+
+# Only allow the below code to be sourced once
+check_var="DOTBASH_$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
+[ -v ${check_var} ] && { unset check_var; return; }
+export ${check_var}=1
+unset check_var
+
+# For pip install --user packages
+[ -d /Users/pbennes/Library/Python/2.7/bin ] &&
+  export PATH=${PATH}:/Users/pbennes/Library/Python/2.7/bin
