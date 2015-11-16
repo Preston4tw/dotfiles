@@ -129,6 +129,8 @@ if ! gem list veewee | grep -q '^veewee '; then
   sudo gem install veewee
 fi
 
-# pip for grip for markdown viewing
 sudo easy_install pip
+# grip for markdown viewing
 pip install --user grip
+# boto for ec2.py for ansible
+pip install --user boto
