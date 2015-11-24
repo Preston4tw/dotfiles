@@ -89,11 +89,12 @@ fi
 
 # Homebrew installs
 BREWS="
-bash
-tmux
 awscli
+bash
 caskroom/cask/brew-cask
 colordiff
+jq
+tmux
 wget
 "
 
