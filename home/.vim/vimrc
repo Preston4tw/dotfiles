@@ -41,6 +41,7 @@ filetype plugin indent on     " Required!
 NeoBundleCheck
 
 set encoding=utf8
+set ruler
 
 " Since we code in multiple languages, we'll set sane defaults but largely rely
 " on modelines
