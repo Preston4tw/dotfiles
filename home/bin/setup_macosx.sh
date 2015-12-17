@@ -95,6 +95,7 @@ caskroom/cask/brew-cask
 colordiff
 jq
 tmux
+watch
 wget
 "
 
