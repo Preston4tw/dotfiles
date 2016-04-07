@@ -21,7 +21,7 @@ function include_guard() {
   # This functionality is implemented by creating and exporting a check variable
   # named after the name of this file with prefix DOTBASH
   local this_filename="$(basename $(echo ${BASH_SOURCE} | tr '[a-z]' '[A-Z]'))"
-  local check_var="DOTBASH_${this_filename}"
+  local check_var="DOTBASH_${this_filename/%.SH/}"
   if [ -z ${!check_var:-} ]; then
     # check_var is undefined. define it and return zero indicating the script
     # should continue.
