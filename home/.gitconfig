@@ -1,6 +1,6 @@
 [user]
   name = Preston Bennes
 [push]
-	default = simple
+  default = simple
 [include]
   path = .gitconfig.user
