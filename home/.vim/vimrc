@@ -9,6 +9,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'vim-colors-solarized'
+NeoBundle 'fatih/vim-go'
 " Recommended to install
 " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 " NeoBundle 'Shougo/vimproc'
@@ -49,6 +50,9 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set modeline
+set modelines=2
+set nowrap
+set scrolloff=1
 
 " Wrap lines at 80 characters
 set textwidth=80
@@ -71,5 +75,5 @@ syntax on
 
 let g:solarized_termcolors=256
 colorscheme solarized
-" set background=light
-set background=dark
+set background=light
+" set background=dark
