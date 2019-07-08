@@ -9,7 +9,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'vim-colors-solarized'
-NeoBundle 'fatih/vim-go'
+" NeoBundle 'fatih/vim-go'
 " Recommended to install
 " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 " NeoBundle 'Shougo/vimproc'
@@ -65,8 +65,8 @@ match OverLength /\%81v.\+/
 " Use the system clipboard for global copy/paste
 set clipboard=unnamed
 
-" Numbered lines
-set number
+" Hybrid line numbers
+set number relativenumber
 
 " Highlight search
 set hlsearch
