@@ -28,7 +28,7 @@ function include_guard() {
     # -g  make variable global (needed when using declare in a func)
     # -r  make variable readonly
     # -x  export variable
-    declare -grx ${check_var}=1
+    declare -rx ${check_var}=1
     return 0
   else
     return 1
@@ -36,7 +36,7 @@ function include_guard() {
 }
 
 function main() {
-  which vim &>/dev/null && declare -gx EDITOR=vim
+  which vim &>/dev/null && declare -x EDITOR=vim
 }
 
 # If this should only ever be sourced once (handling subshells, screen, tmux,

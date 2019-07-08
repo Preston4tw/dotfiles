@@ -29,7 +29,7 @@ function include_guard() {
     # -g  make variable global (needed when using declare in a func)
     # -r  make variable readonly
     # -x  export variable
-    declare -grx ${check_var}=1
+    declare -rx ${check_var}=1
     return 0
   else
     return 1
