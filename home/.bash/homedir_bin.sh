@@ -36,7 +36,9 @@ function include_guard() {
 }
 
 function main() {
-  export PATH="$HOME/bin:$PATH"
+  if [ -d $HOME/bin ]; then
+    export PATH="$HOME/bin:$PATH"
+  fi
 }
 
 # If this should only ever be sourced once (handling subshells, screen, tmux,
