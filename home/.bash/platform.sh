@@ -43,6 +43,8 @@ function main() {
   if [ -d /proc ] && [ -e /proc/cmdline ] && grep -q '^cros_secure' /proc/cmdline; then
     source $(dirname ${BASH_SOURCE[0]})/platform/crouton
   fi
+
+  [ "$(uname -s)" = "Linux" ] && source $(dirname ${BASH_SOURCE[0]})/platform/linux
 }
 
 # If this should only ever be sourced once (handling subshells, screen, tmux,
